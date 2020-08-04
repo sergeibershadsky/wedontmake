@@ -16,10 +16,14 @@ def profile(request):
     github_token = social_user.extra_data['access_token']
 
     g = Github(github_token)
+    github_user = g.get_user()
 
-    repo_names = [repo.name for repo in g.get_user().get_repos()]
+    repos = [repo for repo in github_user.get_repos()]
     return render(
         request,
         'profile.html',
-        context={'repo_names': repo_names}
+        context={
+            'reps': repos,
+            'github_user': github_user
+        }
     )

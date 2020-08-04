@@ -1,8 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
-  <ul>
-    {% for repo in repo_names %}
-      <li>{{ repo }}</li>
-    {% endfor %}
-  </ul>
+
+  <div class="ui main container">
+
+    <h1 class="ui header">Profile page</h1>
+
+    <div class="ui two column grid">
+      <div class="column">
+        <div class="ui card">
+          <div class="image">
+            <img src="{{ github_user.avatar_url }}">
+          </div>
+          <div class="content">
+            <a class="header">{{ github_user.name }}</a>
+            <div class="meta">
+              <span class="date">Joined in {{ github_user.created_at.year }}</span>
+            </div>
+            <div class="description">
+              {{ github_user.bio }}
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="poo icon"></i>
+              {{ github_user.public_repos }} Public repos
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h3 class="ui top attached block header">Public repositories</h3>
+        {% for repo in reps %}
+          <div class="ui attached segment">
+            <a href="{{ repo.url }}">{{ repo.name }} </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 {% endblock %}

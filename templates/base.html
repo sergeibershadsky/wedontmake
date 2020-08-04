@@ -3,8 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.6/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.6/dist/semantic.min.js"></script>
+  <style type="text/css">
+      body {
+          background-color: #FFFFFF;
+      }
+      .ui.menu .item img.logo {
+          margin-right: 1.5em;
+      }
+      .main.container {
+          margin-top: 7em;
+      }
+      .wireframe {
+          margin-top: 2em;
+      }
+      .ui.footer.segment {
+          margin: 5em 0em 0em;
+          padding: 5em 0em;
+      }
+  </style>
 </head>
 <body>
+<div class="ui fixed inverted menu">
+  <div class="ui container">
+    <a href="#" class="header item">
+      Wedonmake
+    </a>
+    <a href="{% url 'profile' %}" class="item">Profile</a>
+  </div>
+</div>
 {% block content %}
 {% endblock %}
 </body>
