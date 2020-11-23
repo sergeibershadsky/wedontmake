@@ -1,5 +1,6 @@
 # WeDontMake
 
+![Django CI](https://github.com/sergeibershadsky/wedontmake/workflows/Django%20CI/badge.svg)
 ### Installation
 
 Copy .env file and add github and django variables:
