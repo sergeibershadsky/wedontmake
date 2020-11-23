@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-  <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+    <div class="ui main text container">
+        <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+    </div>
 {% endblock %}
