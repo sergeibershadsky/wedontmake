@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    container_name: wedontmake
+    build: .
+    env_file:
+      - .env
+    ports:
+      - 80:80
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:11.2-alpine
+    environment:
+      POSTGRES_USER: wedontmake
+      POSTGRES_PASSWORD: wedontmake
+      POSTGRES_DB: wedontmake
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: [ "CMD", "pg_isready -U wedontmake" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
