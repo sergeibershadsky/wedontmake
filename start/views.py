@@ -15,15 +15,20 @@ def profile(request):
     social_user = UserSocialAuth.objects.get(user=user)
     github_token = social_user.extra_data['access_token']
 
-    g = Github(github_token)
-    github_user = g.get_user()
+    github_client = Github(github_token)
+    github_user_profile = github_client.get_user()
 
-    repos = [repo for repo in github_user.get_repos()]
+    repositories = [
+        repo
+        for repo
+        in github_user_profile.get_repos()
+    ]
     return render(
         request,
         'profile.html',
         context={
-            'reps': repos,
-            'github_user': github_user
+            'reps': repositories,
+            'github_user': github_user_profile,
+            'user': user
         }
     )
