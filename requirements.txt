@@ -60,7 +60,7 @@ social-auth-core==3.3.3
     # via social-auth-app-django
 sqlparse==0.4.1
     # via django
-urllib3==1.26.4
+urllib3==1.26.5
     # via requests
 wrapt==1.12.1
     # via deprecated
